@@ -63,6 +63,20 @@ resource "aws_lb_listener" "qnetpublic" {
   }
 }
 
+resource "aws_lb_listener" "qnethttps" {
+  load_balancer_arn = aws_lb.qnetlb.arn
+  port              = "443"
+  protocol          = "HTTPS"
+  ssl_policy        = "ELBSecurityPolicy-TLS13-1-2-2021-06"
+  certificate_arn   = aws_acm_certificate.apexcert.arn
+
+  default_action {
+    type             = "forward"
+    target_group_arn = aws_lb_target_group.qnetlbtarget.arn
+  }
+}
+
+
 resource "aws_lb_target_group" "qnetlbtarget" {
   name        = var.qnet
   port        = var.qnetport
@@ -80,4 +94,12 @@ resource "aws_lb_target_group" "qnetlbtarget" {
     path                = "/"
     port                = var.qnetport
   }
+}
+
+output "app_lb_dns" {
+  value = aws_lb.applb.dns_name
+}
+
+output "qnet_lb_dns" {
+  value = aws_lb.qnetlb.dns_name
 }

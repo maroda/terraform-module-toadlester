@@ -5,6 +5,10 @@ terraform {
       source  = "hashicorp/aws"
       version = "~> 6.0"
     }
+    dnsimple = {
+      source  = "dnsimple/dnsimple"
+      version = "~> 2.0"
+    }
   }
 }
 

@@ -52,3 +52,25 @@ variable "qnetrelease" {
   type    = string
   default = "latest"
 }
+
+/* Secrets - populate tf.tfvars to use locally */
+
+variable "dnsapex" {
+  description = "Domain apex"
+  type        = string
+}
+
+variable "dnstoken" {
+  description = "API Token for DNSimple access"
+  type        = string
+}
+
+variable "dnsaccount" {
+  description = "Account ID for DNSimple access"
+  type        = number
+}
+
+variable "dnscertid" {
+  description = "Certificate ID for domain apex"
+  type        = number
+}
