@@ -27,11 +27,3 @@ resource "aws_acm_certificate" "apexcert" {
   certificate_body  = data.dnsimple_certificate.apexcert.server_certificate
   certificate_chain = join("\n", data.dnsimple_certificate.apexcert.certificate_chain)
 }
-
-output "certificate" {
-  value = data.dnsimple_certificate.apexcert.domain
-}
-
-output "www-cname" {
-  value = dnsimple_zone_record.www.value
-}

@@ -6,6 +6,3 @@ resource "aws_s3_bucket" "appdata" {
   }
 }
 
-output "bucket_name" {
-  value = aws_s3_bucket.appdata.id
-}

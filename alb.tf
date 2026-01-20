@@ -95,11 +95,3 @@ resource "aws_lb_target_group" "qnetlbtarget" {
     port                = var.qnetport
   }
 }
-
-output "app_lb_dns" {
-  value = aws_lb.applb.dns_name
-}
-
-output "qnet_lb_dns" {
-  value = aws_lb.qnetlb.dns_name
-}
