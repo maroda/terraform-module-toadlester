@@ -9,6 +9,10 @@ terraform {
       source  = "dnsimple/dnsimple"
       version = "~> 2.0"
     }
+    toadlester = {
+      source = "registry.terraform.io/maroda/toadlester"
+      version = "~> 0.1"
+    }
   }
 }
 

@@ -53,7 +53,7 @@ variable "qnetrelease" {
   default = "latest"
 }
 
-/* Secrets - populate tf.tfvars to use locally */
+/* Secrets - populate terraform.tfvars to use locally */
 
 variable "dnsapex" {
   description = "Domain apex"
@@ -73,4 +73,72 @@ variable "dnsaccount" {
 variable "dnscertid" {
   description = "Certificate ID for domain apex"
   type        = number
+}
+
+/* ToadLester */
+
+variable "tl_int_limit" {
+  type = string
+  description = "Integer range limit"
+  default = "10000"
+}
+
+variable "tl_int_mod" {
+  type = string
+  description = "Integer limit modifier"
+  default = "2"
+}
+
+variable "tl_int_size" {
+  type = string
+  description = "Integer loop size"
+  default = "100"
+}
+
+variable "tl_float_limit" {
+  type = string
+  description = "Float range limit"
+  default = "100"
+}
+
+variable "tl_float_mod" {
+  type = string
+  description = "Float limit modifier"
+  default = "1.123"
+}
+
+variable "tl_float_size" {
+  type = string
+  description = "Float loop size"
+  default = "10"
+}
+
+variable "tl_float_tail" {
+  type = string
+  description = "Float decimal tail"
+  default = "5"
+}
+
+variable "tl_exp_limit" {
+  type = string
+  description = "Exponent range limit"
+  default = "250"
+}
+
+variable "tl_exp_mod" {
+  type = string
+  description = "Exponent limit modifier"
+  default = "250.43"
+}
+
+variable "tl_exp_size" {
+  type = string
+  description = "Exponent loop size"
+  default = "50"
+}
+
+variable "tl_exp_tail" {
+  type = string
+  description = "Exponent decimal tail"
+  default = "3"
 }

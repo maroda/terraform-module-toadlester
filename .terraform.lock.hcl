@@ -46,3 +46,25 @@ provider "registry.terraform.io/hashicorp/aws" {
     "zh:fe6205b5ca2ff36e68395cb8d3ae10a3728f405cdbcd46b206a515e1ebcf17a1",
   ]
 }
+
+provider "registry.terraform.io/maroda/toadlester" {
+  version     = "0.1.3"
+  constraints = "~> 0.1"
+  hashes = [
+    "h1:gfm6UD/KJfgvelxi0VsyptzDvcWno+Fu3GPuQkDVDs0=",
+    "zh:206a0a79b64d1bc45bee8f36499eead2455d86267e3340c101f3f0933f53b8ce",
+    "zh:24f1beb7ac08243903f51d9a6a57ce6f4f00c267a2493071191e39d72c77ee14",
+    "zh:27c204810bfab6d76893643e8a21542bb5e83a1fb99f7af1cca70c2c4ba66cfa",
+    "zh:33e9921fe0b2b71b97f826b33c5f960a34b82aeaf7a272be48b545dd7b42f3c9",
+    "zh:39106f3cb7921843729b171b152d40da49d08c45113c43d2cfc85ace57fbfce6",
+    "zh:3d637706c68af279a420f072b9b8527759c68b4440e5c5d69d1d73eb3f067656",
+    "zh:5974c92811f847819094fc2b0fb75e63fe9c403f1475732c9e882c29a325c917",
+    "zh:b50d61575951f7f690c49ddcbf66e891ac45fa13e1b94aa01f12163e7cf67732",
+    "zh:bf7ecb723f6935e36aa9b3f9519428947cf8df2f8844494276ec0c565baadc3a",
+    "zh:c0e6b4806f81ad70460a8ab7650084005532f0346c7dff5536eb928e4b9ea2e3",
+    "zh:e0418a84f6b1333bcac5a3b16628aaed3165afcfbc717456489bae261db960f7",
+    "zh:e091ad17cb5078097bb3b2094619e00b28a50c7bd40a735a8945698c76d86be4",
+    "zh:e43ffeb14aea4963337f1154eea8ca433adb31d7aa30353ba263f85f22ad7ec0",
+    "zh:fc7bfd2fb130526e8cefd4c16f1fb8204cab39113baa56d985611d24fe17ca3b",
+  ]
+}

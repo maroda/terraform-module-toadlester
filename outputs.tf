@@ -22,3 +22,11 @@ output "qnet_lb_dns" {
   description = "Monteverdi load balancer endpoint"
   value = aws_lb.qnetlb.dns_name
 }
+
+output "toadlester_endpoint" {
+  value = data.toadlester_type.current.endpoint
+}
+
+output "current_type_settings" {
+  value = data.toadlester_type.current.config
+}

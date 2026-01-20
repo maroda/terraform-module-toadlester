@@ -31,6 +31,14 @@ qnet_lb_dns = "monteverdi-1982795887.us-west-2.elb.amazonaws.com"
 www-cname = "monteverdi-1982795887.us-west-2.elb.amazonaws.com"
 ```
 
+### ToadLester Settings
+
+See configurations in `toadlester.tf` to make changes using the ToadLester terraform provider.
+
+### Monteverdi Configuration
+
+> _Terraform provider in development_
+
 ## Testing
 ### ToadLester API
 
