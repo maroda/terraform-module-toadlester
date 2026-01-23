@@ -14,6 +14,14 @@ data "dnsimple_certificate" "apexcert" {
   certificate_id = var.dnscertid
 }
 
+resource "dnsimple_zone_record" "toadlester" {
+  zone_name = var.dnsapex
+  name      = "toadlester"
+  value     = aws_lb.applb.dns_name
+  type      = "CNAME"
+  ttl       = 300
+}
+
 resource "dnsimple_zone_record" "www" {
   zone_name = var.dnsapex
   name      = "www"

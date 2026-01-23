@@ -1,5 +1,6 @@
 provider "toadlester" {
-  base_url = "http://${aws_lb.applb.dns_name}:${var.port}"
+  // base_url = "http://${aws_lb.applb.dns_name}:${var.port}"
+  base_url = "http://${dnsimple_zone_record.toadlester.qualified_name}:${var.port}"
 }
 
 // Data //
