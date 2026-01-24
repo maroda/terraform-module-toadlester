@@ -19,24 +19,40 @@ resource "aws_ecs_task_definition" "qnettask" {
 
   container_definitions = <<TASK
 [
-  {
-  "image": "${var.qnetrepository}:${var.qnetrelease}",
-  "name": "${var.qnet}",
-  "essential": true,
+    {
+        "image": "${var.qnetrepository}:${var.qnetrelease}",
+        "name": "${var.qnet}",
+        "environment": [
+            {
+                "name": "OTEL_RESOURCE_ATTRIBUTES",
+                "value": "service.name=monteverdi"
+            },
+            {
+                "name": "OTEL_EXPORTER_OTLP_ENDPOINT",
+                "value": "https://otlp-gateway-prod-us-west-0.grafana.net/otlp"
+            }
+        ],
+        "secrets": [
+            {
+                "name": "OTEL_EXPORTER_OTLP_HEADERS",
+                "valueFrom": "arn:aws:secretsmanager:us-west-2:821445872109:secret:grafana/otel/header-z2qbpC"
+            }
+        ],
+        "essential": true,
         "logConfiguration": {
             "logDriver": "awslogs",
             "options": {
                 "awslogs-group": "${var.qnet}",
                 "awslogs-region": "${var.aws_region}",
                 "awslogs-stream-prefix": "ecs"
-              }
-          },
-      "portMappings": [
-        {
-          "protocol": "tcp",
-          "containerPort": ${var.qnetport}
-        }
-      ]
+            }
+        },
+        "portMappings": [
+            {
+                "protocol": "tcp",
+                "containerPort": ${var.qnetport}
+            }
+        ]
     }
 ]
 TASK
@@ -70,4 +86,21 @@ resource "aws_ecs_service" "qnetserv" {
     container_port   = var.qnetport
   }
 
+}
+
+resource "aws_iam_role_policy" "ecstaskexec_secrets" {
+  name = "secrets-access"
+  role = aws_iam_role.ecstaskexec.id
+  policy = jsonencode({
+    Version = "2012-10-17"
+    Statement = [
+      {
+        Effect = "Allow"
+        Action = [
+          "secretsmanager:GetSecretValue"
+        ]
+        Resource = "arn:aws:secretsmanager:us-west-2:821445872109:secret:grafana/otel/header-z2qbpC"
+      }
+    ]
+  })
 }
