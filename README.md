@@ -39,6 +39,20 @@ See configurations in `toadlester.tf` to make changes using the ToadLester terra
 
 > _Terraform provider in development_
 
+#### OpenTelemetry
+
+To use a Grafana OTLP endpoint token to send OTEL traces, create a secret to add in the task:
+```shell
+>>> aws secretsmanager create-secret --name "grafana/otel/header" --description "Auth to ship OTEL to Grafana Cloud" --secret-string "Authorization=Basic <GRAFANA_TOKEN>"
+{
+    "ARN": "arn:aws:secretsmanager:us-west-2:821445872109:secret:grafana/otel/header-z2qbpC",
+    "Name": "grafana/otel/header",
+    "VersionId": "3d76187b-a85a-4dde-a45f-6242476e6a72"
+}
+```
+
+The ARN goes in both the ECS task definition JSON and `aws_iam_role_policy.ecstaskexec_secrets`.
+
 ## Testing
 ### ToadLester API
 

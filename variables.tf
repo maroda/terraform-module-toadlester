@@ -78,67 +78,67 @@ variable "dnscertid" {
 /* ToadLester */
 
 variable "tl_int_limit" {
-  type = string
+  type        = string
   description = "Integer range limit"
-  default = "10000"
+  default     = "10000"
 }
 
 variable "tl_int_mod" {
-  type = string
+  type        = string
   description = "Integer limit modifier"
-  default = "2"
+  default     = "2"
 }
 
 variable "tl_int_size" {
-  type = string
+  type        = string
   description = "Integer loop size"
-  default = "100"
+  default     = "100"
 }
 
 variable "tl_float_limit" {
-  type = string
+  type        = string
   description = "Float range limit"
-  default = "100"
+  default     = "100"
 }
 
 variable "tl_float_mod" {
-  type = string
+  type        = string
   description = "Float limit modifier"
-  default = "1.123"
+  default     = "1.123"
 }
 
 variable "tl_float_size" {
-  type = string
+  type        = string
   description = "Float loop size"
-  default = "10"
+  default     = "10"
 }
 
 variable "tl_float_tail" {
-  type = string
+  type        = string
   description = "Float decimal tail"
-  default = "5"
+  default     = "5"
 }
 
 variable "tl_exp_limit" {
-  type = string
+  type        = string
   description = "Exponent range limit"
-  default = "250"
+  default     = "250"
 }
 
 variable "tl_exp_mod" {
-  type = string
+  type        = string
   description = "Exponent limit modifier"
-  default = "250.43"
+  default     = "250.43"
 }
 
 variable "tl_exp_size" {
-  type = string
+  type        = string
   description = "Exponent loop size"
-  default = "50"
+  default     = "50"
 }
 
 variable "tl_exp_tail" {
-  type = string
+  type        = string
   description = "Exponent decimal tail"
-  default = "3"
+  default     = "3"
 }
